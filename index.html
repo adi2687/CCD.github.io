@@ -111,6 +111,59 @@ left:31.6%;
       left:8%;
 
     }
+    .popup{
+position:relative;
+cursor:pointer;
+    }
+    .popup .popuptext{
+        text-align: center;
+        
+        position:fixed;
+        top:190px;
+        transform: translateY(-70px);
+        visibility: hidden;
+        left:36%;
+        width:400px;
+        height:440px;
+        background-color: rgba(255, 30, 0, 0.741);
+        border-radius: 16px;
+        color:white;
+    }
+    .popup .show {
+        visibility:visible;
+    }
+    .inputpopup{
+        color:red;
+width:260px;
+border-radius: 18px;
+border-color:white;
+color:white;
+height:40px;
+background-color: white;
+    }
+    .passwordpopup{
+        color:red;
+width:260px;
+border-radius: 18px;
+border-color:white;
+color:white;
+height:40px;
+background-color: white;
+    }
+    ::placeholder{
+        color:red;
+        text-align: center;
+        font-size: 120%;
+
+    }
+    .submit{
+        color:red;
+        font-size:70%;
+        width:230px;
+        border-radius:6px;
+        border-color:white;
+        height:25px;
+    }
   </style>
 </head>
 
@@ -143,13 +196,28 @@ left:31.6%;
   <a href="cafemenu.html"><img src="strawberry_cake_natalka_dmitrova.gif" width="512px" height="500px" style="position:absolute;left:0%;top:95%;"></a>
 <a href="download.jpg"><img src="giphy (1).gif" width="512px" height="500px" style="position:absolute;top:95%;left:33%"></a>
       <a href="cake.gif"> <img src="ice836582.gif" width="511px" height="500px" style="position:absolute;top:95%;left:66.5%;"></a>
-      <form action="cafemenu.html" class="search" method="get" style="position:absolute; top:87.7%;left:74%">
+      <form action="cafemenu.html" class="search" method="get" style="position:absolute; top:87.7%;left:74%;height:70px;">
         
         <input type="search" id="searchinput" name="q" placeholder="search">
         <button onclick="document.location='cafemenu.html'">Search</button>
       </form>
       <img src="notification-bell-icon-free-vector.jpg" width="25px" height="25px" style="position:absolute;left:93%;top:620px">
-      <img src="user-profile-icon-free-vector.jpg" width="25px" height="25px" style="position:absolute;left:98%;top:620px">  
+      <div class="popup" onclick="login()">
+      <img src="user-profile-icon-free-vector.jpg" width="25px" height="25px" style="position:absolute;left:98%;top:620px" alt="profile">
+      <br><br><br>
+       <p  id="myPopup" class="popuptext" style="font-size: 160%;top:30%;"><strong>LOGIN</strong><br>To create your profile<br><br>
+        <input type="text" style="color:white" placeholder="EMAIL/PHONE.No " class="inputpopup"><br><br>
+    <input type=text placeholder="PASSWORD" class="passwordpopup"><br><br>
+    <button type="button" action="cafemenu.html" class="submit"><strong>SUBMIT</strong></button><br>
+<strong>---------------or---------------<br>Login with</strong>
+<!-- <img src="facebook.png" style="position: absolute;height:10px;width:10px"> -->
+<img src="google.png" alt="google"><br>
+<strong style="position:relative;font-size:80%;">Dont have an account? Sign up<br>-----------------------------------------</strong><br><strong style="color:grey;font-size:80%;">Download</strong><strong style="color:white;font-size:70%;"> ‎ ‎The Mobile App today</strong>
+</p>
+</p></p>
+<!-- <img src="facebook.png" style="position: absolute;height:10px;width:10px"> -->
+      </div>
+      
       <!-- <img src="burgers.jpg" width="25px" height="25px" style="position:absolute;top:1500px;left:50%;"> -->
     <a href="https://www.instagram.com/aditya_kurani_26/">  <img src="modern-badge-logo-instagram-icon_578229-124 (1) (1).png" width="50px" height="50px" class="insta"></a>
       <a href="https://www.facebook.com/aditya.kurani.1"><img src="facebook.png" width="70px" height="40px" class="facebook"></a>
@@ -157,6 +225,18 @@ left:31.6%;
       <a href="https://www.linkedin.com/in/aditya-kurani-818668176/"><img src="link.png" width="40px" height="40px" class="linkedin"></a>
       <a href="https://twitter.com/AdityaKurani"><img src="twitterlogo.png" width="40px" height="40px" class="twitter"></a>
       <p class="end">Created by ADITYA KURANI</p>
-      <script src="script.js" theme="dark" position="bottom-right"></script>
+
+      <script>
+         function login(){
+            var popup=document.getElementById("myPopup");
+            popup.classList.toggle("show");
+            // if (popup.style.visibilty==="hidden" || popup.style.visibility===""){
+            //     popup.style.visibility="visible";
+            // }
+            // else(popup.style.visibility){
+            //     popup.style.visibility="hidden";
+            // }
+        }
+      </script>
 </body>
 </html>
