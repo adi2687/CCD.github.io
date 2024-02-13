@@ -1,242 +1,460 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>cafecoffeeday.com</title>
   <link rel="icon" href="ccdlogo.png" type="image/x-icon">
   <link href="style.css" rel="stylesheet" type="text/css" />
   <style>
-    main{
-      width: 308px;
-      height: 540px;
-      padding: 1px;
-      top:0%;
-      /*background:sandybrown; */
-      text-align:center;    
-      font-size:190%;
-      position:absolute;
-      left:0%;
-        }
-    coldbrew{
-/*       width:308px;
-      height:500px; */
-      top:0%;
-      padding:1px;
-/*       background:lightyellow; */
-      text-align:top-left;
-      font-size:190%;
-      position:absolute;
-      left:308px;
-      
-    }
-    mocktails{
-/*       width:308px;
-      height:500px; */
-      top:0%;
-      padding:1px;
-/*       background:yellowgreen; */
-      text-align:left;
-      font-size:190%;
-      position:absolute;
-      left:616px;
-    }
-    cafe{
-/*       width:305px;
-      height:500px; */
-      top:0%;
-      padding:1px;
-/*       background:peachpuff; */
-      text-align:left;
-      font-size:190%;
-      position:absolute;
-      left:921px;
-    }
-    .eshop,.orderonline,.cafemenu1,.cafefinder,.Mobileapp{
-      position:absolute;
-      top:84%;
-      color:red;
-      font-size:130%;
-    }
-    .eshop{
-      left: 16%;
-      
-    }
-    .orderonline {
-      left: 23%;
-    }
-    
-    .cafefinder{
-left:31.6%;
-    }
-    .Mobileapp{
-     left:39.2%;}
-    .insta{
-      position:absolute;
-      left:43%;
-      top:170%;
-    }
-    .facebook{
-      position:absolute;
-      left:46.5%;
-      top:170.6%;
-    }
-    .youtube{
-      position:absolute;
-      top:171%;
-      left:51%;
-    }
-    .linkedin{
-      position:absolute;
-      top:171%;
-      left:56%;
-    }
-    .twitter{
-      position:absolute;
-      top:171%;
-      left:60%;
-    }
-    .end{
-      position:absolute;
-      top:180%;
-      left:45%;
-      font-size:110%;
-    }
-    intro{
-      position:absolute;
-      top:0%;
-      left:1228px;
-    }
-    .cafemenu1{     
-      left:8%;
 
+
+    .popup {
+      position: relative;
+      cursor: pointer;
+      visibility: visible;
     }
-    .popup{
-position:relative;
-cursor:pointer;
+
+    .popup .popuptext {
+      text-align: center;
+
+      position: fixed;
+      top: 190px;
+      transform: translateY(-70px);
+      visibility: hidden;
+      left: 36%;
+      width: 400px;
+      height: 440px;
+      background-color: rgba(255, 30, 0, 0.741);
+      border-radius: 16px;
+      color: white;
     }
-    .popup .popuptext{
-        text-align: center;
-        
-        position:fixed;
-        top:190px;
-        transform: translateY(-70px);
-        visibility: hidden;
-        left:36%;
-        width:400px;
-        height:440px;
-        background-color: rgba(255, 30, 0, 0.741);
-        border-radius: 16px;
-        color:white;
-    }
+
     .popup .show {
-        visibility:visible;
+      visibility: visible;
+      /* background-color: black; */
+      animation: blur1 1s 1;
+      /* background-color: rgba(255, 0, 0, 0.949); */
     }
-    .inputpopup{
-        color:red;
-width:260px;
-border-radius: 18px;
-border-color:white;
-color:white;
-height:40px;
-background-color: white;
+
+    @keyframes blur1 {
+      from {
+        filter: blur(5px)
+      }
+
+      to {
+        filter: blur(0px)
+      }
     }
-    .passwordpopup{
-        color:red;
-width:260px;
-border-radius: 18px;
-border-color:white;
-color:white;
-height:40px;
-background-color: white;
+
+    .inputpopup {
+      color: red;
+      width: 260px;
+      border-radius: 18px;
+      border-color: white;
+      color: white;
+      height: 40px;
+      background-color: white;
+      /* filter:blur(5px); */
     }
-    ::placeholder{
-        color:red;
-        text-align: center;
-        font-size: 120%;
+
+    .passwordpopup {
+      color: red;
+      width: 260px;
+      border-radius: 18px;
+      border-color: white;
+      color: white;
+      height: 40px;
+      background-color: white;
+      /* filter: blur(5px); */
+    }
+
+    ::placeholder {
+      color: red;
+      text-align: center;
+      font-size: 120%;
 
     }
-    .submit{
-        color:red;
-        font-size:70%;
-        width:230px;
-        border-radius:6px;
-        border-color:white;
-        height:25px;
+
+    .submit {
+      color: red;
+      font-size: 70%;
+      width: 230px;
+      border-radius: 6px;
+      border-color: white;
+      height: 25px;
     }
+
+    .gridmenu {
+      display: grid;
+      grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+      gap: 45px;
+      /* margin-top:100px; */
+      justify-content: center;
+      position: relative;
+      left: -1%;
+    }
+
+    .option {
+      color: red;
+      font-weight: bold;
+      margin-top: 60px;
+      font-size: 120%;
+      text-align: center;
+      /* border:1px solid blue; */
+    }
+
+    ::placeholder {
+      font-size: 90%;
+      opacity: 0.4;
+    }
+
+    .popuptext ::placeholder {
+      font-size: 100%;
+      font-weight: bold;
+
+    }
+
+    .flex-container {
+      display: flex;
+      position: absolute;
+      left: 38vw;
+      align-items: center;
+      justify-content: center;
+      top: 124vw;
+      /* border: 1px solid blue; */
+      /* gap:-10px; */
+    }
+
+    .flex-container>div {
+      margin: 10px;
+      padding: 4px 3px;
+      font-size: 60%;
+      color: red;
+      font-weight: bold;
+      /* border: 1px solid red; */
+      /* column-gap: 30px; */
+    }
+
+    .img1 {
+      border-radius: 10px;
+
+    }
+
+    .image1 {
+      position: absolute;
+      top: 160%;
+      left: 28%;
+      animation: come 3s 2 ease-in-out;
+    }
+
+    @keyframes come {
+      from {
+        left: 0%;
+      }
+
+      to {
+        left: 28%;
+      }
+    }
+
+    .image2 {
+
+      position: absolute;
+      top: 160%;
+      right: 28%;
+
+      animation: left1 3s 2 ease-in-out;
+    }
+
+    @keyframes left1 {
+      from {
+        right: 0%;
+      }
+
+      to {
+        right: 28%;
+      }
+    }
+
+    .image3 {
+      position: absolute;
+      top: 160%;
+      left: 4%;
+      animation: left2 3s 2 ease-in-out;
+    }
+
+    @keyframes left2 {
+      from {
+        left: -20%;
+      }
+
+      to {
+        left: 4%;
+      }
+    }
+
+
+    .image4 {
+      position: absolute;
+      top: 160%;
+      /* right: 0%; */
+      right: 4%;
+      animation: right2 3s 2 ease-in-out;
+    }
+
+    @keyframes right2 {
+      from {
+        right: -20%;
+      }
+
+      to {
+        right: 4%;
+      }
+    }
+    .parallax{
+  background: url(image13.png) repeat fixed 100%;
+position: absolute;
+top:210%;
+background-size:cover;
+width:98.8vw;
+height:50%;
+left:0%;font-family: 'Times New Roman', Times, serif;
+}
+.linkcontainer {
+            display: flex;
+            /* flex-direction: row;justify-content: space-between; */
+        }
+
+        .link,
+        .link2,
+        .link3,
+        .link4,
+        .link5 {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+
+            top: 280vh;
+            row-gap: 10px;
+
+        }
+
+        .mainhead {
+            font-weight: bold;
+            font-size: 120%;
+            color: grey;
+        }
+
+        .item {
+            color: rgba(128, 128, 128, 0.9);
+/* text-decoration: dotted; */
+        }
+
+        .item:hover {
+            color: red;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .link {
+            left: 12%;
+        }
+
+        .link2 {
+            left: 29%;
+
+        }
+
+        .link3 {
+            left: 44%;
+        }
+        .link4{
+            left:61%;
+        }
+        .link5{
+            left:78%;
+        }
+        .link .cafemenu{
+          border-bottom: none;
+        }
   </style>
 </head>
 
 <body>
-<main>
-  <img src="Screenshot (8).png" width="307px" height="540px">
-  <a href="index.html"><img src="ccdlogo.png" width="130px" height="100px" style="position:absolute;left:0%;top:107%;"></a>
-  
-  </main>
+  <a href="login.html"><img src="homemenu.png" width="100%" height="200%" style="position:relative;top:0px;"></a>
 
-<coldbrew>
-      <img src="coldbrews.png" width="308px" height="540px">
-</coldbrew>
+  <a href="cafemenu.html"><img src="ice836582.gif" style="position: absolute;top:105%;left:0%" width="512px"
+      height="350px"></a>
+  <a href="cafemenu.html"><img src="strawberry_cake_natalka_dmitrova.gif"
+      style="position: absolute;top:100%;left:33.34%;" width="512px" height="390px"></a>
+  <a href="cafemenu.html"><img src="giphy.gif" style="position:absolute;top:104.5%;right:0%;" width="512px"
+      height="350px"></a>
+  <div class="gridmenu">
+    <div></div>
+    <a href="login.html"><img src="ccdlogo.png"
+        style="position: absolute;width:150px;height:90px;top:30%;left:-1%;"></a>
+    <a href="cafemenu.html" style="text-decoration:solid">
+      <div class="option">Cafemenu</div>
+    </a>
+    <a href="eshopfinalone.html" style="text-decoration:solid">
+      <div class="option">E-Shop</div>
+    </a>
+    <a href="cafemenu.html" style="text-decoration:solid">
+      <div class="option">Order online</div>
+    </a>
+    <a href="cafemenu.html" style="text-decoration:solid">
+      <div class="option">Cafe Finder</div>
+    </a>
+    <a href="cafemenu.html" style="text-decoration:solid">
+      <div class="option">Mobile app</div>
+    </a>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <form action="eshopfinalone.html">
+      <div>
+        <input type="search" class="option" style="border-radius:10px;border-color: red;border:2px solid red "
+          placeholder="Search">
 
-  <mocktails>
-    <img src="avogatos.png" width='308px' height="540px">
-  </mocktails>
-  <cafe>
-    <img src="k.png" width="308px" height="540px">
-  </cafe>
-  <intro>
-    <a href="cafemenu.html"><img src="frappes.png" width="307px" height="540px" class="intro"></a>
-  </intro>
-  <a href="cafemenu.html"><p class="cafemenu1">Cafe menu</p></a>
-  <a href="eshopfinalone.html" class="eshop"><p>E-Shop</p></a>
-  <a href="burgers.jpg" class="orderonline"><p>Order online</p></a>
-    <a href="ccdlogomain.png" class="cafefinder"><p>Cafe finder</p></a>
-      <a href="burgers.jpg" class="Mobileapp"><p>Mobile app</p>
-      </a>
-  <a href="cafemenu.html"><img src="strawberry_cake_natalka_dmitrova.gif" width="512px" height="500px" style="position:absolute;left:0%;top:95%;"></a>
-<a href="download.jpg"><img src="giphy (1).gif" width="512px" height="500px" style="position:absolute;top:95%;left:33%"></a>
-      <a href="cake.gif"> <img src="ice836582.gif" width="511px" height="500px" style="position:absolute;top:95%;left:66.5%;"></a>
-      <form action="cafemenu.html" class="search" method="get" style="position:absolute; top:87.7%;left:74%;height:70px;">
-        
-        <input type="search" id="searchinput" name="q" placeholder="search" style="border-color: red;">
-        <button onclick="document.location='cafemenu.html'" style="border-color:red;background-color: white;font-size:80%;">Search</button>
-      </form>
-      <img src="notification-bell-icon-free-vector.jpg" width="25px" height="25px" style="position:absolute;left:93%;top:620px">
-      <div class="popup" onclick="login()">
-      <img src="user-profile-icon-free-vector.jpg" width="25px" height="25px" style="position:absolute;left:98%;top:615px" alt="profile">
-      <br><br><br>
-       <p  id="myPopup" class="popuptext" style="font-size: 160%;top:30%;"><strong>LOGIN</strong><br>To create your profile<br><br>
-        <input type="text" style="color:white" placeholder="EMAIL/PHONE.No " class="inputpopup"><br><br>
-    <input type=text placeholder="PASSWORD" class="passwordpopup"><br><br>
-    <button type="button" action="cafemenu.html" class="submit"><strong>SUBMIT</strong></button><br>
-<strong>---------------or---------------<br>Login with</strong>
-<!-- <img src="facebook.png" style="position: absolute;height:10px;width:10px"> -->
-<img src="google.png" alt="google"><br>
-<strong style="position:relative;font-size:80%;">Dont have an account? Sign up<br>-----------------------------------------</strong><br><strong style="color:grey;font-size:80%;">Download</strong><strong style="color:white;font-size:70%;"> ‎ ‎The Mobile App today</strong>
-</p>
-</p></p>
-<!-- <img src="facebook.png" style="position: absolute;height:10px;width:10px"> -->
       </div>
-      
-      <!-- <img src="burgers.jpg" width="25px" height="25px" style="position:absolute;top:1500px;left:50%;"> -->
-    <a href="https://www.instagram.com/aditya_kurani_26/">  <img src="modern-badge-logo-instagram-icon_578229-124 (1) (1).png" width="50px" height="50px" class="insta"></a>
-      <a href="https://www.facebook.com/aditya.kurani.1"><img src="facebook.png" width="70px" height="40px" class="facebook"></a>
-      <a href="https://www.youtube.com/channel/UClAjpNOeeVqr3yVS-HURStQ"><img src="youtube1.jpg" width="50px" height="39px" class="youtube"></a>
-      <a href="https://www.linkedin.com/in/aditya-kurani-818668176/"><img src="link.png" width="40px" height="40px" class="linkedin"></a>
-      <a href="https://twitter.com/AdityaKurani"><img src="twitterlogo.png" width="40px" height="40px" class="twitter"></a>
-      <p class="end">Created by ADITYA KURANI</p>
+    </form>
+    <img src="notification-bell-icon-free-vector.jpg" width="30px " height="30px" class="option">
+    <div class="popup" onclick="login()">
+      <img src="user-profile-icon-free-vector.jpg" class="option" width="30px" height="30px">
+      <p id="myPopup" class="popuptext" style="font-size: 160%;top:30%;"><strong>LOGIN</strong><br>To create your
+        profile<br><br>
+        <input type="text" style="color:white" placeholder="EMAIL/PHONE.No " class="inputpopup"><br><br>
+        <input type=text placeholder="PASSWORD" class="passwordpopup"><br><br>
+        <button type="button" action="cafemenu.html" class="submit"><strong>SUBMIT</strong></button><br>
+        <strong>---------------or---------------<br>Login with</strong>
+        <!-- <img src="facebook.png" style="position: absolute;height:10px;width:10px"> -->
+        <img src="googlelogoq.jpg" alt="google" width="30px" height="30px"><br>
+        <strong style="position:relative;font-size:80%;">Dont have an account? Sign
+          up<br>-----------------------------------------</strong><br><strong
+          style="color:grey;font-size:80%;">Download</strong><strong style="color:white;font-size:70%;"> ‎ ‎The Mobile
+          App today</strong>
+      </p>
+    </div>
+  </div>
 
-      <script>
-         function login(){
-            var popup=document.getElementById("myPopup");
-            popup.classList.toggle("show");
-            // if (popup.style.visibilty==="hidden" || popup.style.visibility===""){
-            //     popup.style.visibility="visible";
-            // }
-            // else(popup.style.visibility){
-            //     popup.style.visibility="hidden";
-            // }
-        }
-      </script>
+  <div class="flex-container">
+    <div>
+      <a href="https://www.linkedin.com/in/aditya-kurani-818668176/"><img src="link1.png" width="40px" height="40px"
+          class="img1"></a>
+    </div>
+    <div>
+      <a href="https://www.instagram.com/aditya_kurani_26/"><img
+          src="modern-badge-logo-instagram-icon_578229-124 (1) (2).png" width="50px" height="50px" class="img1"></a>
+    </div>
+    <div>
+      <a href="https://www.facebook.com/aditya.kurani.1"><img src="facebook1.png" width="40px" height="40px"
+          style="border-radius: 40px;"></a>
+    </div>
+    <div>
+      <a href="https://twitter.com/AdityaKurani"><img src="twitterlogo.png" width="40px" height="40px" class="img1"></a>
+    </div>
+    <div>
+      <a href="https://www.youtube.co m/channel/UClAjpNOeeVqr3yVS-HURStQ"><img src="youtube1.jpg" width="40px"
+          height="40px" class="img1"></a>
+    </div>
+
+  </div>
+  <b style="position: absolute; top: 315vh;left: 42vw;font-size:140%">Created by Aditya Kurani</b>
+
+
+
+  <div class="image1">
+    <img src="left2.jpg" style="border-top-right-radius: 40px;
+width: 300px;
+height: 300px;
+border-bottom-left-radius: 40px;">
+  </div>
+  <div class="image2">
+    <img src="hover 1.jpg" style="border-top-left-radius: 40px;
+width: 300px;
+height: 300px;
+border-bottom-right-radius: 40px;">
+  </div>
+  <div class="image3">
+    <img src="leftmost.jpg" style="border-top-right-radius: 40px;
+    width: 300px;
+    height: 300px;
+    border-bottom-left-radius: 40px;">
+  </div>
+  <div class="image4">
+    <img src="hover3.jpg" style="border-top-left-radius: 40px;
+    width: 300px;
+    height: 300px;
+    border-bottom-right-radius: 40px;">
+  </div>
+  <section class="parallax">
+
+    <p style="color:white;position: absolute;left:39%;top:21%;font-size:180%;font-weight: bold;">COFFEE TASTES BEST</p>
+    <p style="position:absolute;left:41%;top:40%;font-size:190%;font-weight: bolder;color:white;">WITH A DASH OF </p>
+    <p style="position:absolute;top:54%;left:45%;font-weight: bolder;font-size:260%;color: white;">History</p>
+      </section>
+      <div class="linkcontainer">
+        <div class="link">
+            <div class="mainhead">Quick Link</div>
+            <div class="item">Cafe menu</div>
+            <div class="item">Cafe Finder/Cafe locator</div>
+            <div class="item">Customer Care</div>
+        </div>
+        <div class="link link2">
+            <div class="mainhead">Cafemenu</div>
+            <div class="item">Food For Mood</div>
+            <div class="item">Hot Classic</div>
+            <div class="item">All time chillers</div>
+            <div class="item">All Day Delights</div>
+            <div class="item">Sweeth Tooth X 32</div>
+            <div class="item">Nutritional Info</div>
+        </div>
+        <div class="link3">
+            <div class="mainhead">Shop</div>
+            <div class="item">Coffee Mugs & Cups</div>
+            <div class="item">Coffee Makers & Wakecup</div>
+            <div class="item">Coffee Powder</div>
+            <div class="item">Gifts</div>
+        </div>
+<div class="link4">
+    <div class="mainhead">Buisness</div>
+    <div class="item">Lease Enquiry</div>
+    <div class="item">Advertise with us</div>
+    <div class="item">Coffee Vending Machine</div>
+    <div class="item">Outdoor Catering service</div>
+    <div class="item">Contact Us</div>
+
+</div>
+<div class="link5">
+    <div class="mainhead">About Us</div>
+    <div class="item">Awards</div>
+    <div class="item">Buisness</div>
+    <div class="item">Governance</div>
+    <div class="item">Bean To Cup</div>
+    <div class="item">News & Event</div>
+    <div class="item">Careers</div>
+    <div class="item">Contact Us</div>
+</div>
+    </div>
+      <!-- <p style="position:absolute;top:490%">mwoo</p> -->
+  <script>
+    function login() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+    if (popup.style.visibilty === "hidden" || popup.style.visibility === "") {
+      popup.style.visibility = "visible";
+    }
+    else (popup.style.visibility); {
+      popup.style.visibility = "hidden";
+    }
+    
+  </script>
+
 </body>
+
 </html>
